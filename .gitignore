@@ -32,5 +32,7 @@ bin/
 .idea/
 cmake-build-*/
 
-auth/*
+auth/
+auth/*.crt
+auth/*.key
 !auth/.gitkeep
