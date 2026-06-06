@@ -8,12 +8,12 @@ InputManager::InputManager()
 
 void InputManager::update(SDL_Renderer* renderer)
 {
-    SDL_PumpEvents();
-
     for (int i = 0; i < m_numKeys; ++i)
         m_previousKeyStates[i] = m_currentKeyStates[i];
 
     m_previousMouseState = m_currentMouseState;
+
+    SDL_PumpEvents();
 
     float physicalX = 0.0f;
     float physicalY = 0.0f;
