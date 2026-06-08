@@ -1,7 +1,7 @@
 ﻿# Raccoglie automaticamente tutti i .cpp dentro le cartelle specifiche
 file(GLOB_RECURSE SERVER_SOURCES CONFIGURE_DEPENDS 
     "${CMAKE_CURRENT_SOURCE_DIR}/Server.cpp"
-    #"${CMAKE_CURRENT_SOURCE_DIR}/utils/*.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/serverimpl/*.cpp"
 )
 
 add_executable(server ${SERVER_SOURCES})
