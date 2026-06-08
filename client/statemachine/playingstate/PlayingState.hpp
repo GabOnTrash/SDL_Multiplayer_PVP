@@ -19,6 +19,7 @@ private:
     Player m_player;
 
     PhysicsBody* floor = nullptr;
+    PhysicsBody* floor2 = nullptr;
     SDL_Texture* txtFloor = nullptr;
 
     PhysicsEngine m_physicsEngine; // Motore fisico per gestire la fisica del gioco

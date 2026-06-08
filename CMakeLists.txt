@@ -95,12 +95,12 @@ if(BUILD_CLIENT)
 endif()
 
 # ── Sottoprogetti ─────────────────────────────────────────────────────────────
-add_subdirectory("SDL_Multiplayer_PVP/common")
+add_subdirectory("common")
 
 if(BUILD_CLIENT)
-    add_subdirectory("SDL_Multiplayer_PVP/client")
+    add_subdirectory("client")
 endif()
 
 if(BUILD_SERVER)
-    add_subdirectory("SDL_Multiplayer_PVP/server")
+    add_subdirectory("server")
 endif()

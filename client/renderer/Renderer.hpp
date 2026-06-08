@@ -4,7 +4,7 @@
 #include <SDL3/SDL.h>
 #include <SDL3_image/SDL_image.h>
 
-#include "../camera/Camera.hpp"
+#include "../utils/Camera.hpp"
 
 struct WindowConfig
 {

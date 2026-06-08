@@ -1,6 +1,8 @@
 #pragma once 
 
 #include <vector>
+#include <algorithm>
+
 #include "PhysicsBody.hpp"
 
 class PhysicsEngine
@@ -93,7 +95,7 @@ public:
                         body->velocity.y = 0;
                         body->isGrounded = true;
                     }
-                    else if (body->velocity.y < 0) // moving up
+                    else if (body->velocity.y < 0 && !other->isOneWay) // moving up
                     {
                         body->bounds.pos.y = other->bounds.pos.y + other->bounds.size.y;
                         body->velocity.y = 0;

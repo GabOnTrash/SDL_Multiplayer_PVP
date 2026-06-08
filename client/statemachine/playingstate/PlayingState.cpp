@@ -21,7 +21,14 @@ void PlayingState::onEnter(GameContext& context)
     floor->bounds.size = {3840, 50.0f};
     floor->isStatic = true; 
 
+    floor2 = new PhysicsBody();
+    floor2->bounds.pos = {500.0f, 1800.0f};
+    floor2->bounds.size = {3840, 50.0f};
+    floor2->isStatic = true;
+    floor2->isOneWay = true;
+
     m_physicsEngine.AddBody(floor);
+    m_physicsEngine.AddBody(floor2);
 }
 
 void PlayingState::onExit(GameContext& context)
@@ -46,6 +53,14 @@ void PlayingState::render(GameContext& context)
         floor->bounds.size.y
     };
     context.renderer.DrawTexture(txtFloor, &src, &dst);
+
+    SDL_FRect dst2 = {
+        floor2->bounds.pos.x,
+        floor2->bounds.pos.y,
+        floor2->bounds.size.x,
+        floor2->bounds.size.y
+    };
+    context.renderer.DrawTexture(txtFloor, &src, &dst2);
 
     m_player.render(context.renderer);
 }

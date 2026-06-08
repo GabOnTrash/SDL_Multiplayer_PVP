@@ -14,7 +14,7 @@ struct PhysicsBody
     float inputX = 0.0f; // -1 for left, 1 for right, 0 for no input
 	float maxSpeed = 500.0f;
     float groundAccel = 999999.0f;
-    float airAccel = 1500.0f;
+    float airAccel = 500.0f;
     float groundFriction = 999999.0f;
 
 	void Resize(const vec2& newSize)

@@ -23,7 +23,7 @@ struct vec2
 	{
 		return {x / scalar, y / scalar};
 	}
-    float operator[] (int index) const
+    float operator[](int index) const
 	{
 		return index == 0 ? x : y;
     }
