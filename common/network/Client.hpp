@@ -19,7 +19,7 @@ namespace network
 
 			try
 			{
-				m_sslContext.load_verify_file("auth/space_invader_server.crt");
+				m_sslContext.load_verify_file("auth/server.crt");
 			}
 			catch (std::exception& e)
 			{

@@ -1,8 +1,8 @@
-#include <iostream>
+#include <chrono>
 #include <thread>
-
-#include "../../common/network/Logger.hpp"
 #include "commandline/Clm.hpp"
+#include "../common/network/Logger.hpp"
+#include "serverimpl/ServerImpl.hpp"
 
 void updateCli(CliMenu& menu)
 {
@@ -33,18 +33,30 @@ int main(int argc, char* argv[])
         }
 	}
 
-	// create server
+	ServerImpl server(port);
 	CliMenu interface;
 
-	interface.AddCommand(
-        "start", [port](const auto& args)
-        { Logger::Get().Log(Logger::Level::INFO, "Starting server on port " + std::to_string(port)); });
+	interface.AddCommand("List_players", [&server](const auto& args)
+	{
+		if (!server.ListPlayers())
+			LOG_INFO_CONSOLE("ListPlayers: No players found");
+	});
+	interface.AddCommand("Show_Map_Layout", [&server](const auto& args)
+	{
+		server.KickPlayer();
+	});
 	
 	std::thread cli(updateCli, std::ref(interface));
 	cli.detach();
 
+	auto start = std::chrono::high_resolution_clock::now();
 	while (true)
-        continue;
-	
-	return 0;
+	{
+		auto end = std::chrono::high_resolution_clock::now();
+		float ts = (start - end).count();
+		start = end;
+
+		server.UpdatePhysics(ts);
+		server.Update();
+	}
 }

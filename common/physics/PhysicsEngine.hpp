@@ -16,6 +16,10 @@ public:
     {
         m_bodies.erase(std::remove(m_bodies.begin(), m_bodies.end(), body), m_bodies.end());
     }
+    std::vector<PhysicsBody*> GetBodies()
+    {
+        return m_bodies;
+    }
 
     void update(float ts)
     {

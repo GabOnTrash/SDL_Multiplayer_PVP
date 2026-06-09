@@ -17,6 +17,8 @@ public:
     SDL_Texture*& GetPlayerTexture();
     PhysicsBody*& GetPhysicsBody();
 
+    uint32_t id = 0;
+
 private:
     SDL_Texture* playerTexture;
     PhysicsBody* body = nullptr;

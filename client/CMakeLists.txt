@@ -38,6 +38,13 @@ add_custom_command(TARGET client POST_BUILD
     COMMENT "Copia della cartella degli asset in corso..."
 )
 
+add_custom_command(TARGET client POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        "${CMAKE_CURRENT_SOURCE_DIR}/../common/network/auth"
+        "$<TARGET_FILE_DIR:client>/auth"
+        COMMENT "Copia della cartella dell'autenticazione in corso..."
+)
+
 # ── Console visibile in debug, nascosta in release ────────────────────────────
 if(WIN32)
     set_target_properties(client PROPERTIES

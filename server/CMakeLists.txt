@@ -15,6 +15,14 @@ target_link_libraries(server PRIVATE
     common
 )
 
+add_custom_command(TARGET server POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        "${CMAKE_CURRENT_SOURCE_DIR}/../common/network/auth"
+        "$<TARGET_FILE_DIR:server>/auth"
+        COMMENT "Copia della cartella dell'autenticazione in corso..."
+)
+
+
 if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
     set_target_properties(server PROPERTIES WIN32_EXECUTABLE FALSE) # da cambiare con TRUE in release
 endif()

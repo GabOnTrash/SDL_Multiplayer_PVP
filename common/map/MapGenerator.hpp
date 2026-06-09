@@ -109,7 +109,7 @@ public:
                         PhysicsBody* body = new PhysicsBody();
 
                         body->bounds.pos = {startCol * TILE_SIZE, r * TILE_SIZE};
-                        body->bounds.size.x = {length * TILE_SIZE, TILE_SIZE};
+                        body->bounds.size = {length * TILE_SIZE, TILE_SIZE};
 
                         body->isStatic = true;
 

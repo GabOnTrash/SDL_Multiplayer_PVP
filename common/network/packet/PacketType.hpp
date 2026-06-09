@@ -2,7 +2,7 @@
 
 #include <cstdint>
 
-enum class PVP_PACKET : uint32_t
+enum class pvpPacket : uint32_t
 {
 	MapSeed = 0,
     PlayerJoin,
